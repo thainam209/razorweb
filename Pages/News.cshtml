@@ -1,0 +1,22 @@
+﻿@page
+@model webdemo.Pages.NewsModel
+@{
+    ViewData["Title"] = "News";
+}
+<h1>@ViewData["Title"]</h1>
+
+<h3>Thêm tiêu đề bài viết</h3>
+<form method="post">
+    <input type="text" name="Title" />
+    <h3>Thêm nội dung bài viết</h3>
+    <input type="text" name="Content" />
+    <input type="submit" value="Submit" />
+</form>
+
+<h2>Danh sách các bài viết</h2>
+<ul>
+    @foreach (var item in Model.Articles)
+    {
+        <li><a asp-page="/News/Details" asp-route-id="@item.Id">@item.Title</a></li>
+    }
+</ul>
